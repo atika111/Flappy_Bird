@@ -35,11 +35,11 @@ app.use("/users", usersRoute);
 app.use(globalErrorHandler);
 
 // Add the build directory
-app.use(express.static(path.join(__dirname, pathToBuild)));
+app.use(express.static(pathToBuild));
 
 // Handle React routing, return all requests to React app
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, pathToBuild, "index.html"));
+  res.sendFile(path.join(pathToBuild, "index.html"));
 });
 
 // Server & MongoDB Connection
